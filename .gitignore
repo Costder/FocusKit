@@ -10,3 +10,6 @@ web-build/
 *.key
 *.mobileprovision
 .env
+
+# Generated from assets/icon.b64 by scripts/gen-assets.js (postinstall)
+assets/icon.png
