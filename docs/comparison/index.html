@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADHD Focus Apps Compared: Focusmate, Forest, Tiimo, and FocusKit (2026)</title>
+<meta name="description" content="A genuine, no-affiliate comparison of the most-used ADHD focus apps on Android in 2026. What each one actually does well, where each falls short, and which one fits which kind of ADHD brain.">
+<meta name="keywords" content="adhd focus app android, focusmate alternative android, best adhd focus app, body doubling app android, adhd app comparison, tiimo alternative, adhd timer app, focus app no subscription">
+<meta property="og:title" content="ADHD Focus Apps Compared: What Each One Actually Does (2026)">
+<meta property="og:description" content="Genuine comparison of Focusmate, Forest, Tiimo, and FocusKit. What each does well, where each falls short.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09091e;--bg-card:#0f1230;--gold:#e8c886;--violet:#9d8fc7;
+  --bone:#ece4d3;--bone-dim:#9f97ac;--faint:#4a4468;--hair:rgba(232,200,134,0.12);
+  --green:#3ecf8e;--red:#e85b5b;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--bone);line-height:1.8;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 28px}
+header{border-bottom:1px solid var(--hair);padding:20px 0}
+.header-in{max-width:720px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--bone-dim);font-size:.9rem}
+.back{font-size:.82rem;color:var(--faint);text-decoration:none;transition:color .18s}
+.back:hover{color:var(--gold)}
+article{padding:60px 0 100px}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'✦';font-size:.65rem}
+h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:#f0ead9;margin-bottom:20px}
+h1 em{font-style:italic;color:var(--gold)}
+.lede{font-size:1.12rem;color:var(--bone-dim);line-height:1.75;margin-bottom:48px;border-left:2px solid var(--hair);padding-left:18px}
+.meta{display:flex;gap:16px;font-size:.78rem;color:var(--faint);margin-bottom:48px}
+h2{font-family:'Fraunces',serif;font-weight:500;font-size:1.55rem;letter-spacing:-.015em;color:#e8e1ce;margin:52px 0 16px;line-height:1.2}
+h2 em{font-style:italic}
+h3{font-size:1.05rem;font-weight:600;color:#d0d8ff;margin:28px 0 10px;letter-spacing:-.01em}
+p{font-size:1.02rem;color:var(--bone-dim);margin-bottom:22px;line-height:1.8}
+p b{color:var(--bone);font-weight:500}
+p em{color:var(--bone);font-style:italic}
+ul{margin:0 0 22px 0;padding-left:0;list-style:none}
+ul li{font-size:.98rem;color:var(--bone-dim);padding:7px 0 7px 22px;position:relative;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.03)}
+ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.85rem}
+ul li b{color:var(--bone);font-weight:500}
+blockquote{margin:36px 0;padding:22px 26px;background:rgba(232,200,134,.05);border-left:3px solid var(--gold);border-radius:0 10px 10px 0}
+blockquote p{font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:#d8d0c0;margin:0;line-height:1.7}
+
+/* comparison card */
+.app-card{background:var(--bg-card);border:1px solid var(--hair);border-radius:18px;padding:28px;margin:28px 0;position:relative}
+.app-card:hover{border-color:rgba(157,143,199,.22)}
+.app-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.app-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:#e8dfcc}
+.app-meta{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--bone-dim);margin-top:5px}
+.price{font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:999px;flex-shrink:0}
+.price-paid{background:rgba(232,91,91,.08);color:var(--red);border:1px solid rgba(232,91,91,.2)}
+.price-free{background:rgba(62,207,142,.08);color:var(--green);border:1px solid rgba(62,207,142,.2)}
+.price-freemium{background:rgba(232,200,134,.08);color:var(--gold);border:1px solid rgba(232,200,134,.2)}
+.verdict-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:520px){.verdict-row{grid-template-columns:1fr}}
+.verdict-box{border-radius:10px;padding:12px 14px}
+.vb-pro{background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.12)}
+.vb-con{background:rgba(232,91,91,.05);border:1px solid rgba(232,91,91,.12)}
+.vb-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.vl-pro{color:var(--green)}
+.vl-con{color:var(--red)}
+.vb-list{list-style:none;display:flex;flex-direction:column;gap:5px;padding:0;border:none}
+.vb-list li{font-size:.85rem;color:var(--bone-dim);padding:0;border:none}
+.vb-list li::before{display:none}
+
+/* best for chips */
+.best-for{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:999px;background:rgba(157,143,199,.08);color:var(--violet);border:1px solid rgba(157,143,199,.18)}
+
+/* comparison table */
+.table-wrap{overflow-x:auto;margin:32px 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:10px 14px;border-bottom:1px solid var(--hair);text-align:left}
+td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--bone-dim);vertical-align:top}
+tr:hover td{background:rgba(255,255,255,.02)}
+td:first-child{font-weight:500;color:var(--bone)}
+.ck{color:var(--green)}
+.cr{color:var(--red)}
+.cm{color:var(--faint)}
+
+.callout{margin:36px 0;padding:24px 28px;background:var(--bg-card);border:1px solid var(--hair);border-radius:14px}
+.callout-head{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.95rem;margin:0;color:var(--bone-dim)}
+.callout p b{color:var(--bone)}
+
+.related{margin:52px 0 0;padding:28px;background:var(--bg-card);border:1px solid var(--hair);border-radius:14px}
+.related-head{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+.related a{display:block;color:var(--bone-dim);text-decoration:none;font-size:.95rem;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .18s}
+.related a:last-child{border-bottom:none}
+.related a:hover{color:var(--gold)}
+
+footer{border-top:1px solid var(--hair);padding:36px 0}
+.foot-in{max-width:720px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-tag{font-family:'Fraunces',serif;font-style:italic;font-size:.9rem;color:var(--faint)}
+.foot-link{font-size:.82rem;color:var(--faint);text-decoration:none;transition:color .18s}
+.foot-link:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-in">
+    <a class="logo" href="https://costder.github.io/FocusKit/">
+      <svg width="24" height="24" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><mask id="m4"><rect width="40" height="40" fill="white"/><circle cx="27" cy="14" r="11.5" fill="black"/></mask></defs>
+        <circle cx="20" cy="20" r="13" fill="#e8c886" mask="url(#m4)"/>
+      </svg>
+      Nyx / FocusKit
+    </a>
+    <a class="back" href="https://costder.github.io/FocusKit/">← Back to FocusKit</a>
+  </div>
+</header>
+<main>
+<article>
+<div class="wrap">
+  <div class="eyebrow">ADHD Focus Apps · 2026 Comparison</div>
+  <h1>ADHD focus apps compared: <em>what each one actually does</em></h1>
+  <p class="lede">No affiliate links, no sponsored placements. Just a direct comparison of the apps the ADHD community uses most, written from reading the same community threads that shaped this category.</p>
+  <div class="meta"><span>By Nyx</span><span>June 2026</span><span>9 min read</span></div>
+
+  <p>The ADHD focus app space is full of products that either copy the standard productivity playbook (timer + task list + streaks) or take the ADHD branding seriously. The gap between those two is where most people drop out. This comparison is about that gap.</p>
+
+  <p>The apps covered here are the ones that come up repeatedly in the threads: Focusmate, Forest, Tiimo, and a newer entrant, FocusKit. I've tried to be fair about what each one does well — this isn't a hit piece.</p>
+
+  <h2>The short version</h2>
+  <p>If you need real human body doubling via video: <em>Focusmate</em> is the best answer, by a wide margin. If you want gamification that actually helps you start tasks: <em>Forest</em> is good at what it does. If you need a visual daily planner for your whole day: <em>Tiimo</em> is the most ADHD-specific of the complex-planner category. If you want body doubling without the video call, a visual time-blindness timer, and nothing else: <em>FocusKit</em> is the minimalist alternative.</p>
+
+  <h2>Focusmate</h2>
+
+  <div class="app-card">
+    <div class="app-header">
+      <div>
+        <div class="app-name">Focusmate</div>
+        <div class="app-meta">Web / iOS / Android · Founded 2017 · Subscription</div>
+      </div>
+      <span class="price price-paid">$6.99 / month</span>
+    </div>
+    <p style="font-size:.95rem;color:var(--bone-dim);margin-bottom:14px">Video-based virtual co-working. You book a session, get matched with a stranger, turn on your camera, both say what you're working on, work silently, and check in at the end. It's the original body doubling app, and it still works better than almost anything else for raw accountability.</p>
+    <div class="verdict-row">
+      <div class="verdict-box vb-pro">
+        <div class="vb-label vl-pro">Works well</div>
+        <ul class="vb-list">
+          <li>Real accountability with a real human</li>
+          <li>Massive community — sessions available 24/7</li>
+          <li>The check-in structure provides closure</li>
+          <li>Proven: thousands of testimonials from ADHD adults</li>
+        </ul>
+      </div>
+      <div class="verdict-box vb-con">
+        <div class="vb-label vl-con">Friction points</div>
+        <ul class="vb-list">
+          <li>Must schedule ahead — no "I need it now" option</li>
+          <li>Camera required (not always sensory-safe)</li>
+          <li>25/50 min fixed sessions — no custom length</li>
+          <li>Social overhead can itself be a barrier</li>
+        </ul>
+      </div>
+    </div>
+    <div class="best-for">
+      <span class="chip">need real human presence</span>
+      <span class="chip">structured session format</span>
+      <span class="chip">can plan ahead</span>
+    </div>
+  </div>
+
+  <p>The thing Focusmate gets right is that body doubling with a real person is categorically different from an app simulating presence. If the video call format works for you and you're not sensory-averse to cameras, it's genuinely the most effective option. The cost is the overhead: you have to schedule, show up at the right time, and be camera-ready. For anyone who struggles with transitions and scheduling, that's a meaningful barrier.</p>
+
+  <h2>Forest</h2>
+
+  <div class="app-card">
+    <div class="app-header">
+      <div>
+        <div class="app-name">Forest</div>
+        <div class="app-meta">iOS / Android · Gamified focus timer</div>
+      </div>
+      <span class="price price-freemium">Free / $1.99 unlock</span>
+    </div>
+    <p style="font-size:.95rem;color:var(--bone-dim);margin-bottom:14px">Plant a virtual tree, and it grows while you focus. Leave the app and the tree dies. Earn coins to plant real trees. One of the most downloaded focus apps — and not specifically designed for ADHD.</p>
+    <div class="verdict-row">
+      <div class="verdict-box vb-pro">
+        <div class="vb-label vl-pro">Works well</div>
+        <ul class="vb-list">
+          <li>Gentle loss-aversion mechanic actually gets people to stay</li>
+          <li>Clean, calm UI — not overwhelming</li>
+          <li>Real trees planted (surprisingly motivating)</li>
+          <li>Cheap and available on Android</li>
+        </ul>
+      </div>
+      <div class="verdict-box vb-con">
+        <div class="vb-label vl-con">Friction points</div>
+        <ul class="vb-list">
+          <li>Not designed with ADHD in mind at all</li>
+          <li>No body doubling</li>
+          <li>No time blindness support — standard countdown</li>
+          <li>Dead tree = shame mechanics</li>
+        </ul>
+      </div>
+    </div>
+    <div class="best-for">
+      <span class="chip">phone-lock discipline</span>
+      <span class="chip">light gamification</span>
+      <span class="chip">not specifically ADHD</span>
+    </div>
+  </div>
+
+  <p>Forest is a good tool for one specific problem: stopping yourself from picking up your phone during a session. The loss-aversion mechanic (don't kill your tree) is psychologically sound. But it doesn't address time blindness, doesn't provide any body doubling, and the dead-tree shame cycle is exactly the pattern that makes ADHD apps unsustainable long-term. It's the most popular app in this category because it's cheap and visually satisfying — not because it's built for ADHD.</p>
+
+  <h2>Tiimo</h2>
+
+  <div class="app-card">
+    <div class="app-header">
+      <div>
+        <div class="app-name">Tiimo</div>
+        <div class="app-meta">iOS / Android · ADHD / autism daily planner</div>
+      </div>
+      <span class="price price-paid">$4.99 / month</span>
+    </div>
+    <p style="font-size:.95rem;color:var(--bone-dim);margin-bottom:14px">A visual daily planner designed specifically for ADHD and autism. You structure your whole day in visual blocks, with timer countdowns and gentle reminders. It's the most genuinely ADHD-designed of the complex-planner category.</p>
+    <div class="verdict-row">
+      <div class="verdict-box vb-pro">
+        <div class="vb-label vl-pro">Works well</div>
+        <ul class="vb-list">
+          <li>Genuinely designed with ADHD in mind</li>
+          <li>Visual daily overview helps with time blindness</li>
+          <li>Customizable activity timers and reminders</li>
+          <li>Praised by occupational therapists</li>
+        </ul>
+      </div>
+      <div class="verdict-box vb-con">
+        <div class="vb-label vl-con">Friction points</div>
+        <ul class="vb-list">
+          <li>Requires building and maintaining a full schedule</li>
+          <li>High setup cost — counterintuitive for ADHD brains</li>
+          <li>Overkill if you only need a focus timer</li>
+          <li>Monthly subscription for a planner</li>
+        </ul>
+      </div>
+    </div>
+    <div class="best-for">
+      <span class="chip">daily structure and planning</span>
+      <span class="chip">ADHD + autism overlap</span>
+      <span class="chip">full-day visual scheduling</span>
+    </div>
+  </div>
+
+  <p>Tiimo is the right answer if your problem is daily structure — getting your whole day planned in a way your brain can process visually. It's more of a planner than a focus tool, which is both its strength and its limitation. If you need to manage a full schedule with reminders and visual time blocks, it's genuinely excellent. If you just need to focus on one thing for 25 minutes right now, it's more tool than you need.</p>
+
+  <blockquote><p>"Tiimo was too much to set up and I stopped using it after a week. I needed something I could open when I was already in distress, not something I had to maintain."</p></blockquote>
+
+  <h2>FocusKit</h2>
+
+  <div class="app-card">
+    <div class="app-header">
+      <div>
+        <div class="app-name">FocusKit</div>
+        <div class="app-meta">Android · Local-first · Launching June 24, 2026</div>
+      </div>
+      <span class="price price-freemium">Free to start</span>
+    </div>
+    <p style="font-size:.95rem;color:var(--bone-dim);margin-bottom:14px">A deliberately minimal ADHD focus app for Android. Five features — body-doubling companion, visual time-blindness timer, one-tap task capture, no-shame progress, sensory-calm design — and nothing extra. Local-first, no account, no ads.</p>
+    <div class="verdict-row">
+      <div class="verdict-box vb-pro">
+        <div class="vb-label vl-pro">Works well</div>
+        <ul class="vb-list">
+          <li>No scheduling — body doubling on demand, any time</li>
+          <li>Timer is a visual ring that depletes (not digits)</li>
+          <li>Zero setup, zero account — open and use it</li>
+          <li>No streak mechanics, no shame design</li>
+        </ul>
+      </div>
+      <div class="verdict-box vb-con">
+        <div class="vb-label vl-con">Limitations</div>
+        <ul class="vb-list">
+          <li>No real human body doubling (companion is simulated)</li>
+          <li>Android only (no iOS yet)</li>
+          <li>Very new — v1 is deliberately bare-bones</li>
+          <li>No cloud sync or backup yet</li>
+        </ul>
+      </div>
+    </div>
+    <div class="best-for">
+      <span class="chip">body doubling without video calls</span>
+      <span class="chip">time blindness support</span>
+      <span class="chip">privacy-first / no account</span>
+      <span class="chip">minimal, low-friction</span>
+    </div>
+  </div>
+
+  <h2>How they compare at a glance</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Focusmate</th>
+          <th>Forest</th>
+          <th>Tiimo</th>
+          <th>FocusKit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Body doubling</td><td class="ck">✓ Real human</td><td class="cr">✗</td><td class="cr">✗</td><td class="ck">✓ Simulated</td></tr>
+        <tr><td>Visual time-blindness timer</td><td class="cr">✗</td><td class="cr">✗ (countdown)</td><td class="ck">✓ Partial</td><td class="ck">✓ Core feature</td></tr>
+        <tr><td>No scheduling required</td><td class="cr">✗ Book ahead</td><td class="ck">✓</td><td class="cr">✗ Plan needed</td><td class="ck">✓</td></tr>
+        <tr><td>No account needed</td><td class="cr">✗</td><td class="cr">✗</td><td class="cr">✗</td><td class="ck">✓</td></tr>
+        <tr><td>No ads</td><td class="ck">✓</td><td class="cm">Free tier has ads</td><td class="ck">✓</td><td class="ck">✓ Always</td></tr>
+        <tr><td>No shame streaks</td><td class="ck">✓</td><td class="cr">✗ Dead tree</td><td class="cm">Mixed</td><td class="ck">✓ Design choice</td></tr>
+        <tr><td>Android</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td></tr>
+        <tr><td>Price</td><td>$6.99/mo</td><td>$0–$1.99</td><td>$4.99/mo</td><td>Free to start</td></tr>
+        <tr><td>Local-first / private</td><td class="cr">✗</td><td class="cr">✗</td><td class="cr">✗</td><td class="ck">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Which one is right for you</h2>
+
+  <h3>Use Focusmate if:</h3>
+  <p>You do your best work alongside a real person, you're comfortable on camera, and you can plan your body doubling sessions in advance. The accountability is real. Nothing simulates it better. Worth every penny of the subscription if it works for you.</p>
+
+  <h3>Use Forest if:</h3>
+  <p>Your main problem is picking up your phone during a session. The loss-aversion mechanic is genuinely effective for phone distraction specifically. It's not a body doubling app and it's not designed for ADHD, but it's simple and it works for what it does.</p>
+
+  <h3>Use Tiimo if:</h3>
+  <p>You need to structure your whole day, not just a focus session. If your ADHD manifests as "I don't know what to do with my time" rather than "I know what to do but can't start," Tiimo is built for you.</p>
+
+  <h3>Use FocusKit if:</h3>
+  <p>You want body doubling on demand without a video call or scheduled session, you lose track of time (not just digits, but the actual feeling of it passing), and you don't want to create an account or hand your data to anyone. Especially relevant if you've deleted other apps after breaking a streak — FocusKit doesn't have streaks at all.</p>
+
+  <p>The honest answer is that most people with ADHD try several of these and use different ones at different times. They're not mutually exclusive. But if you're looking for one to start with and your core problem is "I can't start tasks alone," go with Focusmate or FocusKit depending on whether you want real human presence or zero-friction on-demand.</p>
+
+  <div class="callout">
+    <div class="callout-head">✦ Disclosure</div>
+    <p>FocusKit is built by Nyx, the same studio that wrote this article. I've tried to compare it fairly — its limitations are real (no real human body doubling, Android only, brand new). <a href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer" style="color: var(--gold);">The code is public</a> so you can decide whether to trust the privacy claims yourself. It launches on Google Play on June 24, 2026.</p>
+  </div>
+
+  <div class="related">
+    <div class="related-head">Related reading</div>
+    <a href="https://costder.github.io/FocusKit/body-doubling/">Body Doubling for ADHD: What It Is, Why It Works →</a>
+    <a href="https://costder.github.io/FocusKit/time-blindness/">Time Blindness and ADHD: What Actually Helps →</a>
+    <a href="https://costder.github.io/FocusKit/">FocusKit — the app →</a>
+  </div>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-in">
+    <span class="foot-tag">Nyx — software that respects your attention.</span>
+    <a class="foot-link" href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer">FocusKit on GitHub →</a>
+  </div>
+</footer>
+</body>
+</html>
