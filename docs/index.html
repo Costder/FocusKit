@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusKit — an ADHD focus app for Android, built in public</title>
+<meta name="description" content="FocusKit is a quiet, local-first ADHD focus app for Android. A timer you can actually see drain, a body-doubling companion, one-tap capture, and progress that never punishes you. No account, no ads. Live on Google Play June 24, 2026.">
+<meta name="keywords" content="ADHD focus app android, body doubling app, time blindness timer, ADHD planner no account, focus app no ads, ADHD timer android, visual focus timer">
+<meta property="og:title" content="FocusKit — focus for the brain that doesn't focus on command">
+<meta property="og:description" content="A timer you can see drain. A companion that sits with you. Progress that never resets to shame. Android, June 24.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://costder.github.io/FocusKit/">
+<link rel="canonical" href="https://costder.github.io/FocusKit/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#080911;
+  --bg:#0c0e1d;
+  --panel:#12152b;
+  --panel-2:#171a38;
+  --gold:#e8c886;
+  --gold-soft:#f4ddab;
+  --violet:#9d8fc7;
+  --bone:#ece4d3;
+  --bone-dim:#9f97ac;
+  --faint:#615a78;
+  --hair:rgba(232,200,134,0.16);
+  --hair-v:rgba(157,143,199,0.14);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:var(--bg);
+  color:var(--bone);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* grain overlay */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* starfield */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.stars span{
+  position:absolute;width:2px;height:2px;border-radius:50%;
+  background:var(--bone);opacity:.35;
+  animation:tw 4s ease-in-out infinite;
+}
+@keyframes tw{0%,100%{opacity:.12}50%{opacity:.55}}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+/* ── nav ── */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,12,24,.78);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hair);
+}
+.nav-in{max-width:1080px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--bone)}
+.brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;letter-spacing:.01em}
+.brand-by{font-size:.7rem;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+.nav-tag{
+  font-size:.72rem;font-weight:500;color:var(--gold);letter-spacing:.04em;
+  border:1px solid var(--hair);border-radius:999px;padding:5px 13px;
+  display:flex;align-items:center;gap:7px;
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:tw 2.5s infinite}
+
+/* ── hero ── */
+.hero{position:relative;padding:96px 0 60px;overflow:hidden}
+.moon{
+  position:absolute;top:-40px;right:-60px;width:340px;height:340px;z-index:0;
+  opacity:.95;filter:drop-shadow(0 0 60px rgba(232,200,134,.18));
+}
+@media(max-width:760px){.moon{width:200px;height:200px;top:-10px;right:-50px;opacity:.7}}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:26px;font-weight:500;
+}
+.hero-eyebrow .sep{color:var(--faint)}
+h1{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:clamp(2.5rem,6.4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.018em;
+  max-width:15ch;margin-bottom:26px;
+  color:#f3ecdb;
+}
+h1 em{font-style:italic;color:var(--gold-soft)}
+.hero-sub{
+  font-size:clamp(1.02rem,1.7vw,1.22rem);
+  color:var(--bone-dim);max-width:46ch;margin-bottom:38px;line-height:1.7;
+}
+.hero-sub b{color:var(--bone);font-weight:500}
+.ctas{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:500;
+  padding:13px 24px;border-radius:11px;text-decoration:none;cursor:pointer;
+  transition:transform .12s,background .18s,border-color .18s,color .18s;
+}
+.btn-gold{background:var(--gold);color:#1a1408;border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--bone-dim);border:1px solid var(--hair)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--bone)}
+
+/* timer instrument */
+.instrument-row{display:flex;gap:54px;align-items:center;margin-top:70px;flex-wrap:wrap}
+.instrument{position:relative;width:240px;height:240px;flex-shrink:0}
+.instrument svg{width:240px;height:240px;transform:rotate(-90deg)}
+.dial-bg{fill:none;stroke:rgba(232,200,134,.12);stroke-width:2}
+.dial-track{fill:none;stroke:rgba(157,143,199,.18);stroke-width:10}
+.dial-fill{
+  fill:none;stroke:var(--gold);stroke-width:10;stroke-linecap:round;
+  stroke-dasharray:597;stroke-dashoffset:150;
+  filter:drop-shadow(0 0 6px rgba(232,200,134,.45));
+  animation:drain 26s linear infinite;
+}
+@keyframes drain{from{stroke-dashoffset:110}to{stroke-dashoffset:597}}
+.tick{stroke:rgba(232,200,134,.28);stroke-width:2}
+.dial-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dial-time{font-family:'Fraunces',serif;font-weight:500;font-size:2.7rem;color:#f3ecdb;letter-spacing:-.02em;line-height:1}
+.dial-label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:7px}
+.instrument-note{max-width:30ch}
+.instrument-note .pip{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:12px}
+.instrument-note h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;color:var(--bone);margin-bottom:9px;line-height:1.2}
+.instrument-note p{font-size:.92rem;color:var(--bone-dim);line-height:1.65}
+
+/* ── marquee ── */
+.marquee{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;padding:16px 0;margin-top:64px;background:rgba(18,21,43,.4)}
+.marquee-track{display:flex;gap:36px;white-space:nowrap;width:max-content;animation:slide 32s linear infinite}
+.marquee-track span{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--bone-dim);display:flex;align-items:center;gap:36px}
+.marquee-track span::after{content:'✦';color:var(--gold);font-style:normal}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── section scaffold ── */
+section{padding:84px 0}
+.sec-num{font-family:'Fraunces',serif;font-weight:400;font-size:1rem;color:var(--gold);letter-spacing:.1em;display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.sec-num::before{content:'✦'}
+h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;letter-spacing:-.02em;color:#f1ead9;max-width:18ch;margin-bottom:24px}
+h2 em{font-style:italic;color:var(--gold-soft)}
+.prose{font-size:1.05rem;color:var(--bone-dim);max-width:54ch;line-height:1.8}
+.prose b{color:var(--bone);font-weight:500}
+.prose .q{font-family:'Fraunces',serif;font-style:italic;color:var(--violet)}
+
+/* problem */
+.problem{border-top:1px solid var(--hair)}
+.problem .prose{max-width:58ch}
+
+/* features bento */
+.features .head{margin-bottom:48px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{
+  background:linear-gradient(160deg,var(--panel),var(--panel-2));
+  border:1px solid var(--hair);border-radius:18px;padding:30px;
+  position:relative;overflow:hidden;transition:border-color .25s,transform .25s;
+  opacity:0;transform:translateY(22px);
+}
+.tile.in{opacity:1;transform:none}
+.tile:hover{border-color:var(--hair-v);transform:translateY(-3px)}
+.tile.big{grid-column:span 6}
+.tile.half{grid-column:span 3}
+.tile.third{grid-column:span 2}
+@media(max-width:820px){
+  .bento{grid-template-columns:1fr 1fr}
+  .tile.big,.tile.half,.tile.third{grid-column:span 2}
+}
+@media(max-width:520px){
+  .bento{grid-template-columns:1fr}
+  .tile.big,.tile.half,.tile.third{grid-column:span 1}
+}
+.ic{width:46px;height:46px;margin-bottom:20px;color:var(--gold)}
+.ic svg{width:46px;height:46px;display:block}
+.tile h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem;color:#f1ead9;margin-bottom:11px;letter-spacing:-.01em}
+.tile.big h3{font-size:1.7rem}
+.tile p{font-size:.95rem;color:var(--bone-dim);line-height:1.68}
+.tile.big p{max-width:52ch}
+.tile .glow{position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(232,200,134,.10),transparent 70%);pointer-events:none}
+
+/* privacy */
+.privacy{border-top:1px solid var(--hair)}
+.privacy-panel{
+  background:linear-gradient(150deg,#10132a,#0c0e1d);
+  border:1px solid var(--hair);border-radius:22px;padding:48px;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
+}
+@media(max-width:760px){.privacy-panel{grid-template-columns:1fr;padding:32px}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{
+  font-size:.82rem;color:var(--gold);border:1px solid var(--hair);
+  border-radius:999px;padding:8px 16px;font-weight:500;
+  background:rgba(232,200,134,.04);
+}
+.privacy-art{display:flex;align-items:center;justify-content:center}
+
+/* closing CTA */
+.closing{text-align:center;border-top:1px solid var(--hair);padding-bottom:96px}
+.closing .sec-num{justify-content:center}
+.closing h2{margin:0 auto 22px}
+.closing .prose{margin:0 auto 30px;color:var(--bone-dim)}
+.launch{display:inline-flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--gold);border:1px solid var(--hair);border-radius:999px;padding:10px 22px;margin-bottom:34px}
+.closing .ctas{justify-content:center}
+
+/* footer */
+footer{border-top:1px solid var(--hair);padding:34px 0}
+.foot-in{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.foot-tag{font-family:'Fraunces',serif;font-style:italic;color:var(--bone-dim);font-size:.95rem;max-width:42ch}
+.foot-links{display:flex;gap:24px}
+.foot-links a{color:var(--faint);text-decoration:none;font-size:.85rem;transition:color .18s}
+.foot-links a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- nav -->
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><mask id="m"><rect width="40" height="40" fill="#fff"/><circle cx="27" cy="14" r="11.5" fill="#000"/></mask></defs>
+        <circle cx="20" cy="20" r="13" fill="#e8c886" mask="url(#m)"/>
+        <path d="M8 34c0-2.6 2-4.3 4.5-3.9 1.4.2 2.4 1.4 2.4 2.8l2-1.8c1.2-1 3-.4 3.2 1.1.1 1-.5 1.9-1.4 2.3l-2.4 1-1.8 3H11L9 34z" fill="#0c0e1d"/>
+        <path d="M19.6 31.4l3.2-1.3-2 2.6z" fill="#0c0e1d"/>
+      </svg>
+      <span class="brand-name">FocusKit</span>
+      <span class="brand-by">by Nyx</span>
+    </a>
+    <span class="nav-tag"><span class="live-dot"></span>Live June 24</span>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- hero -->
+<section class="hero">
+  <div class="wrap">
+    <!-- engraved moon -->
+    <svg class="moon" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+      <defs>
+        <radialGradient id="moonG" cx="38%" cy="34%" r="75%">
+          <stop offset="0%" stop-color="#fbf3df"/>
+          <stop offset="55%" stop-color="#e8c886"/>
+          <stop offset="100%" stop-color="#b8975a"/>
+        </radialGradient>
+      </defs>
+      <circle cx="150" cy="150" r="120" fill="url(#moonG)" opacity="0.96"/>
+      <circle cx="150" cy="150" r="120" fill="none" stroke="#fbf3df" stroke-opacity="0.5" stroke-width="1"/>
+      <circle cx="108" cy="112" r="20" fill="#cda769" opacity="0.5"/>
+      <circle cx="188" cy="150" r="30" fill="#cda769" opacity="0.42"/>
+      <circle cx="140" cy="196" r="14" fill="#cda769" opacity="0.5"/>
+      <circle cx="206" cy="100" r="9" fill="#cda769" opacity="0.5"/>
+      <circle cx="96" cy="170" r="8" fill="#cda769" opacity="0.45"/>
+    </svg>
+
+    <div class="hero-eyebrow">Android focus app <span class="sep">·</span> built in public</div>
+    <h1>Most focus apps are built for brains that <em>already focus.</em></h1>
+    <p class="hero-sub">FocusKit is for the other kind. The brain that loses three hours and doesn't feel it. That works twice as well with someone else in the room. That deletes an app the day it breaks a streak. <b>I built it around those exact problems, and nothing else.</b></p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        Read the code
+      </a>
+      <a class="btn btn-ghost" href="#what">What it actually does ↓</a>
+    </div>
+
+    <!-- timer instrument -->
+    <div class="instrument-row">
+      <div class="instrument" role="img" aria-label="A moon-dial focus timer with the ring draining as time passes">
+        <svg viewBox="0 0 240 240">
+          <circle class="dial-bg" cx="120" cy="120" r="108"/>
+          <circle class="dial-track" cx="120" cy="120" r="95"/>
+          <circle class="dial-fill" cx="120" cy="120" r="95"/>
+          <g class="tick">
+            <line x1="120" y1="14" x2="120" y2="24"/>
+            <line x1="226" y1="120" x2="216" y2="120"/>
+            <line x1="120" y1="226" x2="120" y2="216"/>
+            <line x1="14" y1="120" x2="24" y2="120"/>
+          </g>
+        </svg>
+        <div class="dial-center">
+          <span class="dial-time">18:42</span>
+          <span class="dial-label">focusing</span>
+        </div>
+      </div>
+      <div class="instrument-note">
+        <span class="pip">the time-blindness fix</span>
+        <h3>You can't read a clock you can't feel.</h3>
+        <p>So the timer isn't a number in a corner. It's a ring of moonlight that visibly empties while you work. You glance up and you just <em>know</em> how much is left.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>no account</span><span>no ads</span><span>local-first</span><span>source-available</span><span>no shame streaks</span><span>built in public</span>
+    <span>no account</span><span>no ads</span><span>local-first</span><span>source-available</span><span>no shame streaks</span><span>built in public</span>
+  </div>
+</div>
+
+<!-- problem -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-num">01 — why bother</div>
+    <h2>The problem was never that you're <em>lazy.</em></h2>
+    <p class="prose">It's that the tools were built for someone else. A normal timer is a number shrinking in the corner, and you don't feel a number. A normal to-do app wants you to build a whole system first, so building the system quietly becomes the thing you avoid. And the streak counter? <span class="q">The day you slip, it drops you to zero and you never open it again.</span> None of that is a focus problem. It's a design problem, and design problems can be fixed.</p>
+  </div>
+</section>
+
+<!-- features -->
+<section class="features" id="what">
+  <div class="wrap">
+    <div class="head">
+      <div class="sec-num">02 — what it does</div>
+      <h2>Five things, done properly.</h2>
+      <p class="prose">No swiss-army app. These are the five things people with ADHD keep asking for, so that's all FocusKit is. Each one earns its place.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile big reveal">
+        <div class="glow"></div>
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="20" r="8"/><circle cx="32" cy="24" r="8"/><path d="M6 42c0-6 5-10 12-10M30 42c0-6 5-9 11-9" stroke-linecap="round"/></svg></div>
+        <h3>A companion that sits with you</h3>
+        <p>Working next to another person makes the impossible suddenly doable. Body doubling is the closest thing to a cheat code the ADHD brain has. FocusKit's companion stays with you for the whole session, so the work never feels like grinding alone. No call to join. No stranger on a webcam. Just the quiet sense that someone's there.</p>
+      </div>
+
+      <div class="tile half reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="26" r="15"/><path d="M24 26V16M24 11V6M19 6h10" stroke-linecap="round"/><path d="M24 26l8 4" stroke-linecap="round"/></svg></div>
+        <h3>Catch the thought in one tap</h3>
+        <p>The idea shows up, you tap once, it's saved. No folders, no tags, no project to maintain. If capture takes longer than two seconds, the thought's already gone.</p>
+      </div>
+
+      <div class="tile half reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 38c2-10 6-15 14-15s12 5 14 15" stroke-linecap="round"/><path d="M24 23V9M24 9c-4 0-7-2-7-5 4 0 7 2 7 5zM24 13c4 0 7-2 7-5-4 0-7 2-7 5z"/></svg></div>
+        <h3>Progress that won't punish you</h3>
+        <p>It counts the days you showed up. That's the whole metric. Miss a day and nothing resets, nothing guilts you. Streaks that punish you are the reason you quit the last app.</p>
+      </div>
+
+      <div class="tile third reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="16"/><path d="M24 8a16 16 0 000 32 10 10 0 010-32z" fill="currentColor" stroke="none" opacity="0.5"/></svg></div>
+        <h3>Four lengths, no setup</h3>
+        <p>5, 15, 25, or 45 minutes. Pick one, start. A soft sound ends it, never an alarm-clock jolt.</p>
+      </div>
+
+      <div class="tile third reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 18c-3 0-6 2-6 6s3 6 6 6M34 18c3 0 6 2 6 6s-3 6-6 6" stroke-linecap="round"/><path d="M24 12v24" stroke-linecap="round" opacity="0.5"/><circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Built to stay quiet</h3>
+        <p>High-contrast and reduce-motion are on day one. Calm colors. No badges, no popup begging for a rating.</p>
+      </div>
+
+      <div class="tile third reveal">
+        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="11" y="20" width="26" height="18" rx="3"/><path d="M17 20v-4a7 7 0 0114 0v4" stroke-linecap="round"/><circle cx="24" cy="29" r="2.5" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Yours, and only yours</h3>
+        <p>Everything lives on your phone. Nothing leaves it. The next card is the part I care about most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- privacy -->
+<section class="privacy">
+  <div class="wrap">
+    <div class="privacy-panel">
+      <div>
+        <div class="sec-num">03 — the part I won't compromise</div>
+        <h2>It stays on your phone. <em>All of it.</em></h2>
+        <p class="prose">Local-first, and I mean it literally. No account to make, no password, nothing syncing to a server you'd have to trust me with. There's no ad SDK buried in it and nothing logging what you do. The whole thing is source-available, so you don't have to believe a word of this. Go read every line.</p>
+        <div class="chips">
+          <span class="chip">no account</span>
+          <span class="chip">no cloud</span>
+          <span class="chip">zero ads</span>
+          <span class="chip">source-available</span>
+        </div>
+      </div>
+      <div class="privacy-art">
+        <svg width="170" height="170" viewBox="0 0 170 170" fill="none" aria-hidden="true">
+          <circle cx="85" cy="85" r="60" stroke="var(--hair)" stroke-width="1"/>
+          <circle cx="85" cy="85" r="44" stroke="var(--hair-v)" stroke-width="1"/>
+          <path d="M85 50l28 14v20c0 18-12 30-28 36-16-6-28-18-28-36V64l28-14z" fill="none" stroke="#e8c886" stroke-width="1.6"/>
+          <path d="M76 86l6 6 13-14" stroke="#e8c886" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="85" cy="20" r="2" fill="#e8c886"/><circle cx="142" cy="60" r="1.6" fill="#9d8fc7"/><circle cx="30" cy="120" r="1.6" fill="#9d8fc7"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- closing -->
+<section class="closing">
+  <div class="wrap">
+    <div class="sec-num">04 — when</div>
+    <h2>It goes live on Google Play, <em>June 24.</em></h2>
+    <p class="prose">v1 is finished and the code's already public. No waitlist, no email to hand over first. Come back Wednesday, or watch the rest of it get built in the open right now.</p>
+    <div class="launch">🌙 Android · Google Play · June 24, 2026</div>
+    <div class="ctas">
+      <a class="btn btn-gold" href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        View source on GitHub
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer">Follow the build</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <span class="foot-tag">Made by Nyx, a tiny studio building in the open. No investors, no ads to sell. Just tools that don't try to own you.</span>
+    <div class="foot-links">
+      <a href="https://github.com/Costder/FocusKit" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://github.com/Costder/FocusKit/blob/main/README.md" target="_blank" rel="noopener noreferrer">README</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// scatter stars
+(function(){
+  var s=document.getElementById('stars');if(!s)return;
+  var n=window.innerWidth<600?40:80;
+  for(var i=0;i<n;i++){
+    var d=document.createElement('span');
+    d.style.left=Math.random()*100+'%';
+    d.style.top=Math.random()*100+'%';
+    d.style.animationDelay=(Math.random()*4)+'s';
+    if(Math.random()>0.8){d.style.width='3px';d.style.height='3px';}
+    s.appendChild(d);
+  }
+})();
+// reveal on scroll
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
