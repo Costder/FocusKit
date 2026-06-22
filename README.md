@@ -58,3 +58,12 @@ eas build -p android --profile production
 
 FocusKit collects nothing. There is no server. Your tasks and focus history live only
 on your device. That's the whole point.
+
+## License
+
+FocusKit is **source-available**, not open source, under the
+[PolyForm Noncommercial License 1.0.0](LICENSE.md).
+
+You're welcome to read the code, audit it, and build your own personal copy. What you
+**can't** do is use it commercially — that includes shipping a competing or derivative
+app. The code is public so you can trust it, not so it can be cloned into a product.
