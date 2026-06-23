@@ -190,3 +190,103 @@ v1 is basic. More coming. Feedback welcome.
 - Reply to every response within 2 hours — X algorithm rewards engagement velocity
 - If you pin tweet 6 (the launch tweet) it'll stay at the top of your profile
 - After the thread goes out, drop the link in the r/ADHD comment you'll make (adding Play Store URL) and the Show HN first comment
+
+
+---
+
+## MULTI-SUBREDDIT LAUNCH STAGGER — spread over 3 days for compounding reach
+
+Research shows staggered multi-subreddit launches outperform single-day blasts. Each community gets a tailored post:
+
+**WEDNESDAY — r/ADHD** ← use the r/ADHD post already drafted above
+- 2.5M members, your exact target user
+- Post 9am–noon EST for US peak
+- Reply to every comment within 2 hours (critical for visibility)
+- This is the most important post of the launch
+
+**THURSDAY — r/SideProject** (the day after)
+Subject: "FocusKit — ADHD focus app. Body doubling, visual timer, no account. Launched yesterday on Android."
+
+```
+Launched FocusKit yesterday on Google Play.
+
+It's an ADHD focus app with a visual depleting timer and a body-doubling companion. Built from r/ADHD community threads — every feature maps to something the community kept asking for that didn't exist in one place.
+
+Tech: Expo/React Native, TypeScript, AsyncStorage local-first. Zero backend, zero network calls. Code is public.
+
+Play Store: [link]
+GitHub: github.com/Costder/FocusKit
+Landing page: costder.github.io/FocusKit/
+
+Day 1 numbers: [add real numbers when available]
+```
+
+**FRIDAY — r/IMadeThis**
+Subject: "I made FocusKit — a quiet ADHD focus app for Android (body doubling + visual timer)"
+
+```
+Made this for ADHD adults who've quit other focus apps because of streak shame, forced accounts, or timers that just show digits.
+
+FocusKit: body-doubling companion, a ring that drains as you focus (not a number), one-tap task capture, and "you showed up N days" progress.
+
+Android. Free to start. No account. Code is public.
+
+[Play Store link] | [GitHub link]
+```
+
+**r/AlphaAndBetaUsers** (any day — specifically invites early feedback)
+Subject: "FocusKit — ADHD focus app, seeking feedback"
+```
+Looking for people with ADHD to try FocusKit and give honest feedback on whether these five features actually help.
+
+The app does: body doubling companion, visual time-blindness timer, one-tap task capture, no-shame progress, sensory-calm design.
+
+No account. Local-first. Android. Free.
+
+[Play Store link] — Would love to hear what's missing or wrong.
+```
+
+---
+
+## FOLLOW-UP POST — post Thursday or Friday after launch
+
+Reddit follow-up posts often outperform the original launch post. This template fills in once you have real numbers:
+
+**r/ADHD — 2 days after launch**
+Subject: "Update: FocusKit launched Wednesday. Here's what people said, what broke, and what's next."
+
+```
+Two days ago I posted about FocusKit launching on Android. 
+
+Here's what happened:
+
+**The numbers:** [X installs, Y reviews, Z average rating]
+
+**What people said was working:** [fill in from actual reviews/feedback]
+- 
+-
+
+**What people said was missing or broken:**
+-
+-
+
+**What's next:** [the one thing you'll fix or add first based on feedback]
+
+I'm still reading the GitHub issues page and comments. If you tried it and hit something frustrating, I want to know.
+
+[Play Store link]
+```
+
+---
+
+## CRITICAL: First 2 Hours After Posting
+
+This is the most important window for any Reddit post:
+
+1. **Reply to every single comment** — even short acknowledgments count. "That's a fair point." "Good catch, noted." Reddit's algorithm heavily weights comments-per-time.
+2. **Upvote genuinely helpful responses** from your account
+3. **If a commenter asks a question in a comment thread** — reply in that thread, not just at the top level
+4. **Don't edit the post body** in the first 2 hours — it resets engagement metrics on some algorithms
+
+Real-world data: a similar ADHD focus app got 40 upvotes and 8 signups by replying to every comment within 2 hours. Posts that go unanswered in the first hour rarely get to the front page.
+
