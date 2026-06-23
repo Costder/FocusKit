@@ -104,3 +104,89 @@ Before posting:
 - [ ] Replace [link] placeholders in the post
 - [ ] Have the GitHub issues link ready to add to comments
 - [ ] Set aside 2 hours for comment responses after posting
+
+---
+
+## X (TWITTER) LAUNCH THREAD — post Wednesday when Play Store is live
+
+**Post from your personal X account, not scout-01.**
+**Best time: 8–11am Phoenix (MST/PDT) Wednesday June 24.**
+
+---
+
+**TWEET 1 — the hook (opens the thread)**
+```
+Most focus apps are built for brains that already focus on command.
+
+I built one for the other kind.
+
+🧵
+```
+
+**TWEET 2 — the specific problem**
+```
+ADHD time blindness is real. Not a metaphor.
+
+You sit down to work. An hour passes. You felt nothing.
+
+A countdown number in the corner doesn't help if you can't feel time. So I made a timer that you can *see* drain.
+```
+
+**TWEET 3 — the body doubling feature**
+```
+Working alone with ADHD is dramatically harder than working alongside someone.
+
+Body doubling — working next to another person — is the closest thing to a cheat code the ADHD brain has.
+
+FocusKit's companion sits with you for the whole session. No video call. No scheduling. Open the app and you're not alone.
+```
+
+**TWEET 4 — no shame design**
+```
+Streaks are a shame trap.
+
+You miss one day. The counter resets to zero. You feel guilty. You avoid the app. You never open it again.
+
+FocusKit doesn't have streaks. It counts the days you showed up. That number only goes up.
+```
+
+**TWEET 5 — privacy**
+```
+No account.
+No cloud sync.
+No ads.
+Nothing leaves your phone.
+
+The full codebase is public on GitHub. Read every line if you want to verify this.
+```
+
+**TWEET 6 — the launch**
+```
+It's called FocusKit. Free to start. Android.
+
+Live today on Google Play 👇
+[PLAY STORE LINK]
+
+Landing page: costder.github.io/FocusKit/
+Code: github.com/Costder/FocusKit
+```
+
+**TWEET 7 — the build-in-public context**
+```
+I spent months reading r/ADHD threads before writing a line of code.
+
+Every feature in FocusKit is a direct response to something the community kept asking for.
+
+The five things above are the only things that came up over and over that didn't exist together in one app. Nothing else.
+
+v1 is basic. More coming. Feedback welcome.
+```
+
+---
+
+**HASHTAGS to add to tweet 1 or 7:** #ADHD #ADHDTech #buildinpublic #Android #focusapp
+
+**Thread tips:**
+- Reply to every response within 2 hours — X algorithm rewards engagement velocity
+- If you pin tweet 6 (the launch tweet) it'll stay at the top of your profile
+- After the thread goes out, drop the link in the r/ADHD comment you'll make (adding Play Store URL) and the Show HN first comment
