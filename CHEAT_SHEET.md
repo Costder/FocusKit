@@ -80,3 +80,50 @@ Get the URL: https://play.google.com/store/apps/details?id=com.nyx.focuskit
 
 **Reply to every single comment within 2 hours of posting.**
 This is the most important thing you can do after the posts go live.
+
+---
+
+## PREREQUISITES (check these BEFORE Wednesday morning)
+
+**Expo account** — required for EAS build. Create free at expo.dev if you don't have one.
+- The `eas login` command will fail without it
+- Create account: https://expo.dev/signup
+
+**Google Play developer account** — $25 one-time fee, ID verification 1-2 days.
+- If created Saturday/Sunday, verification should be done by Wednesday
+- If not verified yet: check email for verification notice from Google
+
+**Keystore** — EAS generates and stores this automatically on first production build.
+- Don't download or touch it manually — let EAS manage it
+- Warning: if you lose this keystore, you can't update the app on Play Store ever
+
+---
+
+## IF GOOGLE PLAY REJECTS THE APP
+
+**Don't panic. Most first-time rejections are minor and fast to fix.**
+
+Common rejection reasons and solutions:
+
+| Rejection reason | Fix |
+|-----------------|-----|
+| Privacy policy not accessible | Enable GitHub Pages so the URL loads |
+| Icon or screenshot spec issue | Re-export at correct dimensions, resubmit |
+| Misleading description | Remove any superlatives ("best", "only") — our copy avoids these |
+| Data safety form incomplete | Fill in all sections, confirm all "No" answers |
+| App crashes during review | Fix the crash and rebuild |
+
+**Typical timeline after fixing:**
+- Resubmit the correction → usually reviewed within 1-3 hours
+- Don't resubmit the same app without fixing the reason — it delays further
+
+**If rejected for a reason not listed above:**
+→ Read the rejection email carefully — Google always tells you exactly what to fix
+→ Check the Play Console "Policy status" page for details
+
+**Delay plan if not approved by 11am Phoenix:**
+→ Proceed with r/ADHD and X posts WITHOUT the Play Store link
+→ Say "available on Google Play by end of day — link coming"
+→ Add the Play Store link as a comment/edit when it goes live
+→ Don't wait for Play Store to post on r/ADHD — the window is 9am-noon EST
+
