@@ -30,7 +30,7 @@ eas build -p android --profile production
 |-------|-------|
 | App name | FocusKit: Body Doubling Timer |
 | Short description | Body doubling + visual timer for ADHD. No account, no ads, no shame streaks. |
-| Privacy policy URL | https://costder.github.io/FocusKit/privacy/ |
+| Privacy policy URL | **USE THIS NOW: https://hyperagent.com/s/IlFbtb-4ZHuyE7lrVSgTng** (live without Pages) — or https://costder.github.io/FocusKit/privacy/ after Pages enabled |
 | Data safety | All "No data collected" — click No for every question |
 | Content rating | Complete questionnaire → result: Everyone |
 | App icon (512×512) | Download from Hyperagent thread (shortId: 1axsh9uz or l9uidnaj) OR base64 -d assets/icon.b64 > icon.png |
@@ -46,7 +46,10 @@ eas build -p android --profile production
 
 Get the URL: https://play.google.com/store/apps/details?id=com.nyx.focuskit
 
-**8–11am Phoenix — post in this order:**
+**IT IS OK TO POST ON r/ADHD BEFORE THE PLAY STORE IS APPROVED.**
+Just say "Goes live on Google Play today — link coming" and add the link as a comment when it's approved.
+
+**Post in this order:**
 
 1. **r/ADHD** — copy post from LAUNCH.md, post from your personal Reddit account
    → Reply to EVERY comment within 2 hours (critical for front page)
