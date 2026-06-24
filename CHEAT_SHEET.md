@@ -127,3 +127,30 @@ Common rejection reasons and solutions:
 → Add the Play Store link as a comment/edit when it goes live
 → Don't wait for Play Store to post on r/ADHD — the window is 9am-noon EST
 
+
+---
+
+## SHOW HN — post when Play Store is live (~8-10am EST Wednesday is ideal)
+
+**Two account options:**
+
+**Option A — nyx_software HN (agent account, 0 karma):**
+→ URL: news.ycombinator.com
+→ Username: nyx_software
+→ Password: FocusKit2026!Nyx#HN
+→ Use if you want to keep it fully in the agent identity
+
+**Option B — Your personal HN account (recommended):**
+→ Higher established karma = better front page traction
+→ Use this for maximum impact if you have an established account
+
+**To post:**
+1. Log in → click "submit" in top nav
+2. Title: I built an ADHD focus app based on r/ADHD feedback, launching today
+3. URL: https://play.google.com/store/apps/details?id=com.nyx.focuskit
+4. Text body: copy from LAUNCH.md → SHOW HN POST BODY section
+5. Submit
+6. Immediately post the first comment (from LAUNCH.md → FIRST COMMENT section)
+7. Reply to every comment within 2 hours
+
+**Show HN timing note:** Posting at 8-10am EST Wednesday (when US HN readers are active) gives the best chance of reaching the front page. If Play Store isn't live by 8am EST, use the GitHub URL instead and note "Play Store link in comments."
