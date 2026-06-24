@@ -134,15 +134,10 @@ Common rejection reasons and solutions:
 
 **Two account options:**
 
-**Option A — nyx_software HN (agent account, 0 karma):**
-→ URL: news.ycombinator.com
-→ Username: nyx_software
-→ Password: FocusKit2026!Nyx#HN
-→ Use if you want to keep it fully in the agent identity
+**Use your personal HN account — this is the only viable option.**
 
-**Option B — Your personal HN account (recommended):**
-→ Higher established karma = better front page traction
-→ Use this for maximum impact if you have an established account
+⚠️ The nyx_software HN account is BLOCKED from Show HN (new accounts are restricted).
+You must post from your personal HN account. No workaround exists for this.
 
 **To post:**
 1. Log in → click "submit" in top nav
